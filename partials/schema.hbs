@@ -1,14 +1,15 @@
 {{!-- Please validate any customizations with Schema validator! (https://validator.schema.org/) --}}
 <script type="application/ld+json" class="yext-schema-json" data-yext-id="{{id}}">
 {
+ {
   "@context": "https://schema.org",
   "@id": "{{id}}",
   "@type": ["Restaurant"],
-  "name": "{{name}}",
-  "telephone": "{{mainPhone}}",
+   "name": "{{name}}",
   "geo": "{{>schemaHelpers-geo geocodedCoordinate}}",
-  "openingHoursSpecification": [
-    "{{>schemaHelpers-hours hours}}"
+  "openingHoursSpecification": "{{>schemaHelpers-hours hours}}",
+  "telephone": "{{mainPhone}}",
+}
   ],
 }
 }
