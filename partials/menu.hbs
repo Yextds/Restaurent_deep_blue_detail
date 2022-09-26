@@ -21,7 +21,7 @@
                 {{#each c_relatedmenuitemsdeepblue}}
                 <div class=" flex-wrap">
                     <div class="filterElements {{c_menunav}} menu-box">
-                        <div class="menu-img"> <img src="{{photoGallery.[0].image.url}}" alt=""></div>
+                        <div class="menu-img"> <img src="{{photoGallery.[0].image.url}}" alt="menuimg"></div>
                         <h4>{{name}}</h4>
                     </div>
                 </div>
@@ -130,9 +130,9 @@
 
 {{!-- script to filter data --}}
 
- console.log(`{{ c_relatedmenuitemsdeepblue.[0].c_menunav }}`,'zero index')
+
  var data=`{{ c_relatedmenuitemsdeepblue.[0].c_menunav }}`;
- console.log(data,'zero//// index')
+
    filterSelection(data)
 
     function filterSelection(c) {
