@@ -1,0 +1,722 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url(https://use.typekit.net/fgw4dhn.css);
+/* --------------------------------------------
+Default
+-----------------------------------------------*/
+@font-face {
+  font-family: 'optimanormal';
+  src: url(fonts/optima-webfont.woff2) format('woff2'),
+       url(fonts/optima-webfont.woff) format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap
+
+}
+
+@font-face {
+  font-family: 'optimabold';
+  src: url(fonts/optima_b-webfont.woff2) format('woff2'),
+       url(fonts/optima_b-webfont.woff) format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap
+
+}
+
+html {
+  scroll-behavior: smooth;
+}
+body{
+  @apply font-normal text-light_black font-optimanormal  text-sm lg:text-base;
+}
+body.menu-opened{
+  @apply overflow-hidden lg:overflow-auto;
+}
+h1, .h1{
+  @apply text-4xl md:text-5xl lg:text-[70px] font-optimabold leading-snug lg:leading-[80px];
+}
+h2, .h2{
+  @apply text-3xl md:text-4xl lg:text-[56px] font-optimabold leading-snug lg:leading-[66px];
+}
+h3, .h3{
+  @apply text-2xl md:text-3xl lg:text-[40px] font-optimabold leading-snug lg:leading-[48px];
+}
+h4, .h4{
+  @apply text-xl md:text-2xl font-optimabold leading-8;
+}
+.button{
+  @apply inline-flex align-top justify-center items-center py-2 md:py-3 px-2 font-semibold bg-blue text-white rounded min-w-[170px] md:min-w-[200px];
+}
+.container{
+  @apply max-w-[1600px] px-[15px] md:px-5;
+}
+
+
+/* --------------------------------------------
+Header
+-----------------------------------------------*/
+.navbar{ font-family:"minerva-modern"; font-weight: 700; text-transform: uppercase; }
+.dropdown-menu a{ font-family:"minerva-modern"; font-weight: 400; text-transform: capitalize; color: rgb(0 0 0 / 99%);  }
+.centered-container { @apply mx-auto px-5 md:px-14 max-w-screen-xl;}
+
+.header-container{  @apply  px-2 lg:max-w-[960px]  xl:max-w-[1140px] 2xl:max-w-[1320px]}
+.nav-item a{ @apply hover:text-blue-light}
+.nav-link.dropdown-toggle{ @apply hover:text-blue-light cursor-pointer}
+.section { @apply mt-8 mb-16;}
+
+.nav-item:first-child:after{
+  @apply content-none
+}
+.nav-item a{
+  @apply relative 
+}
+.nav-item a:after{
+  @apply content-[''] absolute -bottom-1 left-0 w-0 transition-all duration-500 border-b;
+}
+.nav-item a:hover:after{
+  @apply w-full
+}
+
+.dropdown-menu .dropdown-item {
+  @apply after:content-none
+}
+
+.btn {
+  @apply border px-2 py-2 rounded transform hover:bg-[#f9c85f] focus:bg-[#f9c85f] ease-in-out transition-all cursor-pointer  text-center focus:outline-none flex gap-2 items-center justify-center;
+}
+.nav-item .btn{
+  @apply after:content-none
+}
+
+.btn-hero { font-family:"minerva-modern"; 
+  @apply border px-2 py-2 rounded transform  font-bold  relative hover:scale-[1.05] ease-in-out transition-all cursor-pointer hover:shadow-lg text-center focus:outline-none flex gap-2 items-center justify-center;
+}
+
+
+.btn-primary {  @apply   focus:ring-2;}
+.error-text { padding-bottom:10px;  color: red;}
+.dropdown-toggle::after {
+  display: inline-block;
+  margin-left: 0.255em;
+  vertical-align: 0.255em;
+  content: "";
+  border-top: 0.3em solid;
+  border-right: 0.3em solid transparent;
+  border-bottom: 0;  border-left: 0.3em solid transparent;}
+.wave-bg { z-index: -1;  top: 0;  pointer-events: none;  position: absolute;  left: 0; width: 100%;}
+
+.wave-bg path { fill: #004b97;}
+.wave-bg .trawler { animation: waves 1.2s infinite alternate-reverse;}
+.brand-logo-container svg {  height: 12vw;  max-height: 177px;}
+
+.odd-even{ @apply border-t border-[#0D5094]  }
+.currentDay { @apply !bg-blue-dark text-white  p-0.5 lg:py-0.5 !mr-[6px];}
+.time-row{  @apply pl-7}
+.time-row.currentDay{
+  @apply relative !leading-9 before:content-[''] before:absolute before:top-2.5 before:left-1.5 before:w-5 before:h-5 before:rounded before:bg-[#115EAC] 
+  after:content-[''] after:absolute after:top-4 after:left-3 after:w-2.5 after:h-1.5 after:transform after:-rotate-45 after:border-b after:border-l after:border-white;
+}
+
+.accordion-button{@apply after:z-10}
+.facilt-bx{box-shadow: 2px 1px 10px #adcceb;}
+.dropdown-item{ @apply block  pl-1 py-1}
+.hrs-line > .tsrt{ @apply mr-1}
+.owl-carousel .owl-prev{ @apply absolute top-1/2 left-0 w-10 h-10 !border rounded-full !bg-[#004b97]   -mt-5;}
+.owl-carousel .owl-prev span{ @apply  text-white text-xl;}
+.owl-carousel .owl-next{ @apply absolute top-1/2 right-0 w-10 h-10 !border  rounded-full !bg-[#004b97]  -mt-5;}
+.owl-carousel .owl-next span{  @apply text-white text-xl; }
+.owl-carousel .owl-nav.disabled, .owl-carousel .owl-dots.disabled{@apply !block; }
+
+
+.accordion-body{ @apply !bg-[#004182] !bg-opacity-100}
+.container-custom{  @apply max-w-[100%] px-2  xl:px-4 2xl:px-0 xl:max-w-[1320px]}
+.accordion {  cursor: pointer; padding: 18px; width: 100%; border: none; text-align: left; outline: none;  font-size: 15px;  transition: 0.4s;}
+/* .active, .accordion:hover { background-color: #ccc;} */
+.accordion:after { content: '\002B'; color: #777; font-weight: bold; float: right;  margin-left: 5px;}
+.acpanel{ @apply !bg-[#004182] !bg-opacity-100}
+.acpanel {  max-height: 0; overflow: hidden; transition: max-height 0.2s ease-out;}
+
+
+@media screen and (min-width:1360px) {
+  /* .container-custom{  @apply  px-2 max-w-[1280px]} */
+  .row{ @apply -mx-6  }
+  .faq-sec-inner{ @apply -ml-5}
+
+
+}
+
+.faq-sec-inner{ @apply 2xl:-ml-10}
+
+
+
+@keyframes waves {
+  from {
+      transform: rotate(0deg);
+  }
+  to {
+      transform: rotate(0.35deg);
+  }
+}
+@media screen and (max-width: 1023px){
+  #menu-responsive{
+      @apply hidden;
+  }
+  #menu-responsive.show{
+      @apply block;
+  }
+  #menu-responsive a{ @apply text-lg font-optimabold }
+
+
+
+
+  #menu-btn .when-closed:focus{ @apply  border-white border-[3px] border-white rounded	; }
+
+  #menu-btn.active .when-opened{
+      @apply block rounded  border-white border-[3px]; 
+  }
+
+
+
+  #menu-btn.active .when-opened svg{@apply w-[15px] mr-[9px] }
+
+
+  #menu-btn.active .when-closed{
+      @apply hidden;
+  }
+  
+
+  .panel{width: 100%;}
+  #map{width: 100%; height: 320px; margin-top: 15px;}
+}
+
+.menu-btn{
+  @apply w-5 h-5 relative lg:hidden;
+}
+.menu-btn span, .menu-btn span:after, .menu-btn span:before{
+  @apply absolute w-5 h-[3px] bg-blue block content-[''];
+}
+.menu-btn span:after{
+  @apply transition-all ease-in-out duration-200 -bottom-[7px] ml-0;
+}
+.menu-btn span:before{
+  @apply transition-all ease-in-out duration-200 -top-[7px] ml-0;
+}
+.menu-opened .menu-btn span{
+  @apply bg-transparent;
+}
+.menu-opened .menu-btn span:before{
+  @apply transform rotate-45 top-0;
+}
+.menu-opened .menu-btn span:after{
+  @apply transform -rotate-45 bottom-0;
+}
+
+.store-locator-link{
+  @apply lg:hidden ml-auto mr-4;
+}
+.store-locator-link svg{
+  @apply w-3.5;
+}
+
+
+
+/* --------------------------------------------
+Breadcrumb
+-----------------------------------------------*/
+.breadcrumb{
+  @apply my-2.5 lg:my-10;
+}
+.breadcrumb ul{
+  @apply flex flex-row items-center leading-9 text-sm;
+}
+.breadcrumb ul li{ 
+  @apply align-middle font-optimanormal font-normal text-[#3D3935]  text-xl;
+}
+.breadcrumb ul li a{ 
+  @apply inline-flex font-optimanormal items-center text-xl  h-9 font-normal align-top text-blue-primary  after:mt-0 after:font-optimabold  after:bg-br-arrow  after:w-[7px] after:h-3  after:mx-1.5 relative; 
+}
+.breadcrumb ul li a:before{
+  @apply content-[''] absolute bottom-0 left-0 right-5 max-w-0 transition-all duration-500 border-b;
+}
+.breadcrumb ul li a:hover:before{
+  @apply max-w-full
+}
+
+/* --------------------------------------------
+Hero Area
+-----------------------------------------------*/
+.hero{
+  @apply relative  z-[11] text-white text-sm lg:text-2xl font-optimanormal   after:absolute after:top-0 after:left-0 after:bottom-0 after:right-0  after:-z-[1];
+}
+.hero h1{ @apply text-[52px] font-optimabold mb-4 leading-10  }
+
+.hero p{ @apply text-3xl font-optimanormal   mb-4}
+
+.hero .hero-img{
+  @apply absolute top-0 left-0 w-full h-full object-cover object-center -z-[1];
+}
+
+.answers-layout { @apply max-w-xs md:max-w-lg xl:max-w-[35.6rem] w-full m-auto}
+.search-bar .yxt-SearchBar-container{ @apply z-[99] xl:py-1 font-optimanormal }
+.search-bar .yxt-SearchBar-container .yxt-SearchBar-input{ @apply !font-optimanormal text-sm !text-[#57585A] placeholder:text-[#57585A] }
+.search-bar { @apply flex}
+.search-location-arrow { @apply cursor-pointer}
+.search-bar-icon { @apply cursor-pointer}
+.search {  @apply ml-2}
+
+.answers-layout .yxt-SearchBar-button {
+  height: 46px;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+
+.hero .Icon-image{ @apply !w-5 !h-5  xl:!w-6 xl:!h-6}
+
+/* --------------------------------------------
+Location information
+-----------------------------------------------*/
+.location-information{
+  @apply pt-0 lg:pt-0;
+}
+.store-time-status{
+  @apply text-blue;
+}
+.store-time-status strong{
+  @apply text-red font-normal;
+}
+.boxes{
+  @apply flex flex-wrap -mx-[15px] md:-mx-2.5 lg:-mx-[15px]  xl:mx-[0px];
+}
+.box{
+  @apply md:px-2.5 lg:px-[15px];
+}
+.box.store-info{
+  @apply w-full md:w-[370px] lg:w-1/2 xl:w-[360px];
+}
+.box.store-timing{
+  @apply w-full md:w-[calc(100%_-_370px)] lg:w-1/2 xl:w-[415px]  mt-2.5 md:mt-0 relative bg-blue-light   before:content-[''] before:absolute
+  before:bottom-0 
+  before:right-0 before:w-[290px] before:h-[244px] 
+  before:z-0  before:bg-hour-pattern  before:bg-no-repeat;
+}
+.box.store-timing h4{ @apply text-white font-optimabold}
+.box.map-info{
+  @apply w-full xl:pr-0 mt-2.5 md:mt-[30px] xl:mt-0 xl:w-[calc(100%_-_775px)];
+}
+.box .inner-box{
+  @apply  text-white  p-[15px] md:py-4 md:px-0 h-full;
+}
+.box.map-info .inner-box{
+  @apply pt-0 md:pt-0 h-auto md:h-96 xl:h-full p-0 relative overflow-hidden;
+}
+.box h4{   @apply border-b leading-7 border-blue-primary text-text-blue-dark pb-0 md:pb-0 mb-[15px] md:mb-5 ;}
+.store-address{
+  @apply relative pl-9 md:pl-9 mb-5;
+}
+
+.store-address .ad-icons{ @apply  bg-blue-primary   text-center w-8 h-8 rounded-full absolute top-1 xl:top-1.5  left-0  }
+.store-address .ad-icons p b{ @apply font-optimabold }
+.store-address svg{@apply absolute top-0.5 left-1.5;}
+
+.store-phone{
+  @apply relative pl-9 md:pl-9 mb-5 inline-block w-full align-top;
+}
+
+
+.store-phone .phn-icons{ @apply  bg-blue-primary  text-center w-8 h-8 rounded-full absolute top-0  left-0  }
+.store-phone svg{@apply absolute top-0.5 left-1.5;}
+.store-phone p{ @apply leading-8}
+
+.store-phone p a{
+  @apply relative
+}
+.store-phone p a:after{
+  @apply content-[''] absolute -bottom-1 left-0 w-0 transition-all duration-500 border-b;
+}
+.store-phone p a:hover:after{
+  @apply w-full
+}
+
+.store-link{
+  @apply flex flex-wrap justify-center md:justify-between;
+}
+.store-link a{
+  @apply inline-flex align-top justify-center items-center py-2 px-2 font-semibold;
+}
+.store-link .direction{
+  @apply bg-white text-black rounded w-auto lg:w-[calc(50%_-_5px)] xl:w-[170px];
+}
+.store-link a svg{
+  @apply mr-1.5 w-4 md:w-auto mt-1 ml-2.5
+}
+.near-location .store-link a svg{@apply mt-0 }
+
+.other-services{
+  @apply mt-6 md:mt-11;
+}
+.other-services .service-row{
+  @apply flex flex-row leading-6 items-center mb-4 last:mb-0;
+}
+.other-services .service-row label{
+  @apply font-semibold w-[115px] md:w-[125px];
+}
+.other-services .service-row .status{
+  @apply bg-blue text-xs font-medium leading-5 min-w-[70px] text-center px-1.5 text-white rounded;
+}
+.other-services .service-row .avability{
+  @apply w-[60px] text-white text-center text-xs md:text-sm rounded-full bg-green leading-6 ml-auto;
+}
+
+.hours{
+  @apply w-full;
+}
+.time-row{@apply flex flex-row w-full justify-between   leading-[2.75rem] pl-9 pr-1.5 border-b border-white border-opacity-20;}
+.time-row .day{
+  @apply w-16 sm:w-64 md:w-32  font-normal lg:w-[calc(100%_-_288px)] xl:w-[calc(100%_-_160px)] 2xl:w-[calc(100%_-_190px)] ;
+}
+ .time-row .store-time{
+  @apply w-[calc(100%_-_8rem)] sm:w-[calc(100%_-_16rem)] md:w-[calc(100%_-_8rem)] lg:w-72 flex justify-around
+}
+/* .hours .time-row .delivery-time{
+  @apply w-24 lg:w-32;
+} */
+
+.map-info img{
+  @apply absolute top-0 left-0 w-full h-full object-cover object-center;
+}
+
+.bg-bodypattern .inner-box{ @apply text-black ;}
+.bg-bodypattern .inner-box b{ @apply !text-[#3D3935]}
+
+
+
+/* --------------------------------------------
+services information
+-----------------------------------------------*/
+.service-bx{ @apply text-center mt-4 px-2 lg:px-0 }
+.service-bx h4{ @apply  text-2xl text-[#115EAC] mt-4 }
+.service-bx p{ @apply  text-sm  my-4 md:min-h-[40px] xl:min-h-0 }
+.service-bx a{ @apply  mt-1 mb-5 }
+
+
+
+
+
+
+
+/* --------------------------------------------
+About
+-----------------------------------------------*/
+.about-sec{
+  @apply  py-0 relative my-10 lg:mt-[70px] lg:mb-[42px] overflow-auto lg:overflow-hidden shadow-[0_0px_8px_rgba(0,0,0,0.10)] 
+  /* before:content-[''] before:absolute before:bottom-0 before:right-0 before:w-[277px] before:h-[370px] before:z-0  before:bg-ring-shape  before:bg-no-repeat; */
+}
+
+.faq-sec{ @apply after:hidden after:lg:block after:content-[''] after:absolute after:bottom-0 after:xl:bottom-10 after:right-0 after:w-[277px] after:h-[370px]  after:z-[0]  after:bg-ring-shape  after:bg-no-repeat; }
+
+
+.about-content{
+  @apply pl-5 pb-0 lg:pl-10 xl:pl-5 2xl:pl-0 pr-5 lg:pr-0 leading-5 md:leading-7 text-[#57585A] pt-5 lg:py-10 relative before:content-[''] before:absolute before:bottom-0 before:-right-2 before:lg:-right-[210px] before:lg:w-[370px] before:lg:h-[370px] before:w-[150px] before:h-[150px] before:z-0  before:bg-ring-shape  before:bg-no-repeat;
+}
+.about-content h3{
+  @apply mb-2.5 text-[42px] lg:mb-2 lg:mb-2 text-[#115EAC];
+}
+.about-content .available-option{
+  @apply mt-6 text-center lg:text-left;
+}
+.about-content h5{
+  @apply font-bold text-base md:text-xl leading-7;
+}
+.about-content ul{
+  @apply flex flex-wrap justify-center lg:justify-start;
+}
+.about-content ul li{
+  @apply mt-2.5 mr-4 last:mr-0;
+}
+.about-content .cta_btn{
+  @apply flex justify-center lg:justify-start w-full mt-5 md:mt-10;
+}
+
+.about-content p{@apply pb-3
+}
+
+/* --------------------------------------------
+Menu section
+-----------------------------------------------*/
+.menu-main-bx{@apply rounded-2xl py-2 px-5  lg:p-5  w-full mx-auto mt-4 lg:shadow-[0_0px_26px_rgba(154,197,243,0.80)] }
+
+.menu-box{ @apply w-1/2 md:w-1/4 lg:w-1/5  text-center  p-6 xl:p-[2.10rem] }
+.menu-box .menu-img { @apply relative rounded-full bg-gradient-to-r from-blue-primary via-blue-light to-blue-primary pt-[100%]  w-full h-0  }
+.menu-box .menu-img img{ @apply absolute w-full h-full top-0 rounded-full border-[5px] border-transparent   }
+.menu-box h4{ @apply text-blue-primary mt-2 text-base }
+a.tab-link{@apply lg:text-[11px] font-optimabold  xl:text-sm 2xl:text-sm  hover:bg-blue-dark    hover:text-white hover:font-semibold  hover:lg:rounded-3xl}
+a.tab-link.current{ @apply bg-blue-dark    text-white font-semibold  lg:rounded-3xl }
+
+
+
+.allergens-sec { @apply mt-2 lg:mt-0 }
+.allergens-sec ul{ @apply flex flex-row flex-wrap  justify-center w-full;}
+.allergens-sec ul li{ @apply px-4 xl:px-1.5 w-full sm:w-1/2 md:w-1/4 lg:w-[216px]  }
+.allergens-sec ul li a{ @apply w-full  border border-blue-primary text-blue-primary rounded-full py-3 md:px-2 lg:px-3 xl:px-3 xl:py-[1.4rem] hover:bg-blue-primary hover:text-white
+ h-10 my-2 md:my-4  font-optimabold  transition-all transform hover:scale-[1.09] justify-center inline-flex items-center hover:shadow-[0_6px_6px_rgba(17,94,172,0.25)] 
+
+} 
+
+/* Accordion styles */
+.tabs {  @apply  overflow-hidden}
+.tab {  @apply  w-full text-white overflow-hidden}
+.tab-label{   @apply flex justify-between relative !pb-0 lg:pb-0  cursor-pointer !border-white  before:bg-[#fff] before:rounded-full before:w-[18.75px] before:h-[18.75px]
+  before:p-0 before:absolute before:right-0 before:top-0.5 after:absolute after:top-1.5 after:right-[5px] after:content-[''] after:w-3 after:h-3 after:text-center 
+  after:transition-all  after:duration-150 after:w-2 after:h-2 after:border-r-2 after:border-b-2 after:border-[#115EAC] after:transform after:rotate-45
+}
+.tab-content { @apply  pb-0 w-full  max-h-0 overflow-hidden  }
+.tab.current .tab-label{  @apply after:relative after:top-[9px] after:-rotate-[135deg] before:bg-[#003f7e] after:border-white }
+.tab.current .tab-content {  @apply max-h-screen pb-4 xl:transition-all xl:duration-500 }
+input:checked + .tab-label {  background: #1a252f;}
+input:checked + .tab-label::after {transform: rotate(90deg);}
+input:checked ~ .tab-content {  max-height: 100vh; padding: 1em;}
+
+
+.mob-tab-label{   @apply flex justify-between my-2 text-blue-dark relative p-4 border-blue-primary border border-solid  font-bold cursor-pointer before:bg-white before:rounded-full before:p-4 before:absolute before:right-1 before:top-1 
+  after:absolute after:top-2.5 after:right-3  after:-ml-1 after:text-blue-primary after:z-10 after:content-['❯'] after:w-4 after:h-4 after:text-center after:transition-all  after:duration-150
+}
+
+.mob-tab-label.current{   @apply  after:rotate-90  after:absolute after:top-3 after:right-2.5  after:-ml-1 after:text-blue-primary after:z-10 after:content-['❯'] after:w-4 after:h-4 after:text-center after:transition-all  after:duration-150
+}
+
+
+
+
+
+
+
+/* --------------------------------------------
+Food List
+-----------------------------------------------*/
+
+.food-list{
+  @apply py-5 md:py-[30px] lg:py-[60px];
+}
+.food-list h3{
+  @apply text-blue mb-5 lg:mb-10;
+}
+.food-list .splide li{
+  @apply px-0 md:px-[15px];
+}
+.food-list .splide .slide-img{
+  @apply inline-block w-full h-0 pt-[100%] overflow-hidden relative rounded-2xl shadow transition-all duration-200 ease-in-out;
+}
+.food-list .splide li:not(.is-active) .slide-img{
+  @apply transform scale-90 md:scale-100 opacity-50 md:opacity-100;
+}
+.food-list .splide .slide-img img{
+  @apply w-full h-full object-cover object-center absolute top-0 left-0;
+}
+.food-list .splide h4{
+  @apply absolute bottom-0 left-0 w-full bg-blue text-white text-center  font-semibold text-sm md:text-lg uppercase py-2.5;
+}
+
+.splide .splide__arrows .splide__arrow{
+  @apply w-14 h-14 rounded-none bg-[#115EAC] opacity-100; 
+}
+.splide .splide__arrows .splide__arrow.splide__arrow--next{
+  @apply right-0 md:right-0 top-auto transform-none bottom-0 2xl:bottom-0;
+}
+.splide .splide__arrows .splide__arrow.splide__arrow--prev{
+  @apply right-12 left-auto md:right-[3.50rem] top-auto transform-none bottom-0 2xl:bottom-0;
+}
+.splide .splide__arrows .splide__arrow svg{
+  @apply fill-white;
+}
+
+/* --------------------------------------------
+FAQ
+-----------------------------------------------*/
+
+/* FAQ accordion */
+.faq-tabs {  @apply  overflow-hidden}
+.faq-tab {  @apply  w-full px-2 xl:px-0 2xl:px-2  text-white overflow-hidden}
+.faq-tab-label{   @apply flex justify-between text-[#06488B] relative sm:p-4   hover:bg-[#115eac] hover:text-white
+  border-blue-primary border border-solid !pr-9  font-bold cursor-pointer before:bg-[#06488B] before:rounded-full before:w-[18.75px] before:h-[18.75px]
+  before:p-0 before:absolute before:right-3 before:top-2 after:absolute after:top-[12px] after:right-[17px] after:content-[''] after:w-3 after:h-3 after:text-center 
+  after:transition-all  after:duration-150 lg:!text-sm xl:text-base  after:w-2 after:h-2 after:border-r-2 after:border-b-2 after:border-white after:transform after:rotate-45
+}
+
+.faq-tab-content { @apply !bg-white w-full  max-h-0 px-4  text-white overflow-hidden  }
+.faq-tab-close { display: flex;  justify-content: flex-end;  padding: 1em;  font-size: 0.75em;  background: #2c3e50; cursor: pointer;}
+.faq-tab.current .faq-tab-label{  @apply text-white bg-[#115EAC] before:bg-white after:border-blue-primary after:-rotate-[135deg] after:top-[15px]}
+.faq-tab.current .faq-tab-content {  @apply max-h-screen p-4 text-[#115EAC] border-blue-primary border border-solid xl:transition-all xl:duration-500 xl:text-base }
+input:checked + .faq-tab-label {  background: #1a252f;}
+input:checked + .faq-tab-label::after {transform: rotate(90deg);}
+
+input:checked ~ .faq-tab-content {  max-height: 100vh; padding: 1em;}
+
+#more{ @apply hidden}
+.faq-sec-inner h2{@apply lg:text-2xl xl:text-[36px] 2xl:text-[42px]}
+
+
+@media screen and (max-width:420px){
+  .faq-tab-label{@apply !pr-9 }
+
+
+}
+
+
+
+
+
+
+/* --------------------------------------------
+Nearby Sec
+-----------------------------------------------*/
+.nearby-sec{
+  @apply py-[30px] lg:py-[60px] xl:mt-0 2xl:mt-0 relative  before:content-[''] before:absolute before:top-0 before:left-0 
+  before:w-full before:h-full before:md:h-[400px] before:xl:h-[524px] before:-z-[1]  before:bg-page-pattern  before:bg-no-repeat;
+}
+.nearby-sec .splide li{
+  @apply px-[15px] xl:px-[25px]
+}
+.nearby-sec h3{
+  @apply text-text-blue-dark text-[42px] mb-5 lg:mb-16 lg:mt-10;
+}
+
+.nearby-sec .splide__list{@apply xl:!-mx-[25px]}
+.nearby-sec .splide__track{@apply xl:pb-3}
+.nearby-sec .near-location{ 
+  @apply bg-nearby-bg relative shadow-[1px_6px_6px_rgba(0,0,0,0.15)] pb-8 text-white  p-4 lg:p-4 2xl:p-6 rounded-tl-2xl rounded-br-2xl  before:content-[''] before:absolute
+  before:bottom-0 
+  before:right-0 before:w-[290px] before:h-[244px] 
+  before:z-0  before:bg-hour-pattern  before:bg-no-repeat;
+}
+.nearby-sec .near-location h4{
+  @apply font-semibold text-base  mb-3;
+}
+.nearby-sec .near-location h4 a{
+  @apply relative;
+}
+
+.nearby-sec .near-location a:after{
+  @apply content-[''] absolute -bottom-1 left-0 w-0 transition-all duration-500 border-b;
+}
+.nearby-sec .near-location a:hover:after{
+  @apply w-full
+}
+
+.nearby-sec .near-location a{
+  @apply hover:text-white text-base relative
+}
+
+.nearby-sec .store-phone{ @apply !mb-0 }
+
+
+.near-location .store-link{
+  @apply justify-center md:justify-start  mt-4;
+}
+.near-location .store-link .direction{
+  @apply py-2 rounded-lg ml-1  text-sm z-10 md:py-2  w-[calc(60%_-_5px)]  md:w-[calc(50%_-_5px)] min-w-0  xl:w-[156px] transition-all duration-300 transform scale-100 hover:scale-105 hover:text-black after:content-none;
+}
+.near-location .store-link .direction svg{
+  @apply relative right-0 transition-all duration-300
+}
+.near-location .store-link .direction:hover svg{
+  @apply -right-1
+}
+.near-location .store-link .view-details{
+  @apply py-2 md:py-3 w-[calc(50%_-_5px)] min-w-0 2xl:min-w-[200px] bg-blue text-white rounded ml-2.5;
+}
+
+.near-location .store-address{ @apply mb-3}
+.near-location .store-phone{ @apply mb-3}
+
+
+
+
+
+.nearby-sec .splide__pagination{
+  @apply relative bottom-0 mt-5;
+}
+.nearby-sec .splide__pagination li{
+  @apply p-0
+}
+.nearby-sec .splide__pagination li .splide__pagination__page{
+  @apply w-3 h-3 bg-blue-primary opacity-30;
+}
+.nearby-sec .splide__pagination li .splide__pagination__page.is-active{
+  @apply scale-100 opacity-100;
+}
+
+
+.nearby-sec #splide-near{
+  @apply max-w-lg xl:max-w-full mx-auto
+}
+
+
+
+
+/* --------------------------------------------
+Footer
+-----------------------------------------------*/
+
+.page__footer{font-family:"minerva-modern"; font-weight: 700;  }
+.site-footer{
+  @apply bg-footer_bg text-white py-5 md:py-9 text-xs md:text-sm leading-loose;
+}
+
+.signup-newsletter{
+  @apply bg-dark_black py-2 px-4 uppercase font-semibold inline-block align-middle;
+}
+
+.site-footer .footer-links{
+  @apply flex flex-wrap flex-row lg:flex-col justify-center lg:justify-start mb-5 lg:mb-0
+}
+.site-footer .footer-links li{
+  @apply after:content-['|'] after:mx-2.5 last:after:content-none lg:after:content-none;
+}
+.footer-address{
+  @apply text-center max-w-md px-4 mx-auto lg:mx-0;
+}
+
+.matches{     position: absolute;
+  left: 10%;
+  top: 0;
+  z-index: 999; display: none;
+  opacity: 50%;
+  transform: translate(0%,0%);}
+
+
+.page__footer .footer-links li a{
+  @apply relative;
+}
+.page__footer .footer-links li a:after{
+  @apply content-[''] absolute -bottom-1 left-0 w-0 transition-all duration-500 border-b;
+}
+.page__footer .footer-links li a:hover:after{
+  @apply w-full
+}
+
+.social-links a:hover svg{
+  @apply transition-all duration-300 transform scale-125;
+}
+
+
+
+
+
+
+@media screen and (max-width:420px){
+  .hours .time-row .day{ @apply w-20  }
+  .hours .time-row .store-time { @apply w-[calc(100%_-_5rem)]}
+}
+ 
+
+.state-bx{@apply before:hidden }
+.storelocation-category{ @apply px-2 w-1/2 sm:w-1/3 lg:w-1/4 xl:w-1/4 2xl:w-1/4 mb-4 p-4  }
+.storelocation-category a{ @apply  justify-center flex border border-[#eee] p-4 w-full rounded-xl transition-all transform hover:scale-[1.09] hover:bg-blue-primary hover:text-white  }
+
+.nearbyaddress{@apply  w-full  flex flex-row  }
+.nearbyaddress svg{ @apply mr-3 }

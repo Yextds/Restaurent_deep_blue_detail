@@ -1,0 +1,179 @@
+       
+       {{#if c_relatedmenuitemsdeepblue}}       
+<div id="menu" class="container-custom  mx-auto">
+    <div class="menu-main-bx ">
+        <h2 class=" text-4xl text-center py-2 lg:pt-8 lg:pb-5 uppercase text-[#115EAC] ">Menu</h2>
+        <!-- Tabs -->
+        <div class="filterBtns ">
+            <ul id="tabs"
+                class=" bg-blue-primary hidden border border-[#707070]  justify-center lg:justify-around lg:px-3 lg:inline-flex rounded-[30px]  py-2 px-1 w-full border-b">
+            {{#each c_relatedmenuitemsdeepblue}}
+                <li class="menucat px-0 text-white font-semibold py-2" onclick="filterSelection('{{c_menunav}}')">
+                    <a id="default-tab" 
+                    class="text-white px-2 xl:p-4 py-2   tab-link">{{replace c_menunav "_" " "}}</a>
+                    </li>
+                {{/each}}
+            </ul>
+        </div>
+        <!-- Tab Contents -->
+        <div class="container">
+            <div class="p-4 border border-blue-primary lg:border-none">
+                {{#each c_relatedmenuitemsdeepblue}}
+                <div class=" flex-wrap">
+                    <div class="filterElements {{c_menunav}} menu-box">
+                        <div class="menu-img"> <img src="{{photoGallery.[0].image.url}}" alt=""></div>
+                        <h4>{{name}}</h4>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+
+        <div class="allergens-sec">
+            <ul>
+                <li><a class="bg-filterIcon bg-no-repeat bg-left bg-[length:24px_auto]  leading-8 lg:leading-[26px] w-auto my-2 lg:my-0 h-8 lg:h-auto"
+                        type="button" data-modal-toggle="allergens-pdf" id="allergens-con"> Allergens</a></li>
+                        {{#each c_restaurantService}}
+                <li><a href="{{serviceURL.uRL}}">{{serviceName}}</a></li>
+             
+        {{/each}}
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+<div id="allergens-pdf" tabindex="-1" aria-hidden="true"
+    class="hidden overflow-hidden fixed top-0 right-0 left-0 z-50 w-full sm:inset-0 h-modal h-full bg-black bg-opacity-75 justify-center items-center flex">
+    <div class="relative w-full max-w-2xl xl:max-w-4xl 2xl:max-w-5xl max-h-[90vh] overflow-hidden notClickable">
+        relative w-full max-w-2xl h-full sm:h-auto notClickable
+        <!-- Modal content -->
+        <div class="relative bg-white md:rounded-lg p-1 md:p-2">
+            <!-- Modal header -->
+            <div class="flex justify-between items-start mb-5">
+                <h3 class=" text-optimabold text-4xl text-center py-2 uppercase text-text-blue-dark w-full">Allergens
+                </h3>
+                <button type="button" id="closeButton" data-modal-toggle="allergens-pdf"
+                    class="closeButton bg-closeIcon bg-no-repeat bg-center w-7 h-7 bg-[length:24px]">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20.953" height="20.953" viewBox="0 0 20.953 20.953">
+                        <path id="Icon_ionic-md-close" data-name="Icon ionic-md-close"
+                            d="M28.477,9.619l-2.1-2.1L18,15.9,9.619,7.523l-2.1,2.1L15.9,18,7.523,26.381l2.1,2.1L18,20.1l8.381,8.381,2.1-2.1L20.1,18Z"
+                            transform="translate(-7.523 -7.523)" fill="#115eac" />
+                    </svg>
+                </button>
+            </div>
+            <!-- Modal body -->
+            <iframe class="window_open_pop h-[calc(90vh_-_112px)]" width="100%" height="100%" id="command"
+                src="https://www.deepbluerestaurants.com/sites/default/files/documents/2022-07/DB%20TA%20Northern%20Stores%20Allergens%200107.pdf#toolbar=0&navpanes=0&scrollbar=0&zoom=100"></iframe>
+            <div class="department-error-text  leading-[20px] text-red">
+            </div>
+            <!-- Modal footer -->
+        </div>
+    </div>
+</div>
+{{/if}}
+<script>
+    document.getElementById("allergens-con").addEventListener("click", function () {
+        document.getElementById('allergens-pdf').classList.remove("hidden");
+        document.getElementById('body').classList.add("overflow-hidden");
+    }, { passive: true });
+
+    document.getElementById("closeButton").addEventListener("click", function () {
+        document.getElementById('allergens-pdf').classList.add("hidden");
+        document.getElementById('body').classList.remove("overflow-hidden");
+    }, { passive: true });
+
+
+    document.getElementById("allergens-top").addEventListener("click", function () {
+        document.getElementById('allergens-pdf').classList.remove("hidden");
+        document.getElementById('body').classList.add("overflow-hidden");
+    }, { passive: true });
+
+    document.getElementById("closeButton").addEventListener("click", function () {
+        document.getElementById('allergens-pdf').classList.add("hidden");
+        document.getElementById('body').classList.remove("overflow-hidden");
+    }, { passive: true });
+</script>
+
+<style>
+    .filterElements {
+        float: left;
+        font-size: 20px;
+        color: #000000;
+        margin: 2px;
+        display: none;
+    }
+
+    .show {
+        display: block;
+    }
+
+    .container {
+        margin-top: 20px;
+        overflow: hidden;
+    }
+</style>
+
+
+{{!-- script to remove duplicate li value --}}
+<script>
+    var liText = '', liList = $('#tabs li'), listForRemove = [];
+    $(liList).each(function () {
+        var text = $(this).text();
+        if (liText.indexOf('|' + text + '|') == -1)
+            liText += '|' + text + '|';
+        else
+            listForRemove.push($(this));
+    });
+    $(listForRemove).each(function () { $(this).remove(); });
+
+
+{{!-- script to filter data --}}
+
+ console.log(`{{ c_relatedmenuitemsdeepblue.[0].c_menunav }}`,'zero index')
+ var data=`{{ c_relatedmenuitemsdeepblue.[0].c_menunav }}`;
+ console.log(data,'zero//// index')
+   filterSelection(data)
+
+    function filterSelection(c) {
+  
+        var x, i;
+        x = document.querySelectorAll(".filterElements");
+        if (c == "all") c = "";
+        Array.from(x).forEach(item => {
+            removeActiveClass(item, "show");
+            if (item.className.indexOf(c) > -1) addActiveClass(item, "show");
+        });
+    }
+    function addActiveClass(ele, name) {
+        var i, arr1, arr2;
+        arr1 = ele.className.split(" ");
+        arr2 = name.split(" ");
+        for (i = 0; i < arr2.length; i++) {
+            if (arr1.indexOf(arr2[i]) == -1) {
+                ele.className += " " + arr2[i];
+            }
+        }
+    }
+    function removeActiveClass(ele, name) {
+        var i, arr1, arr2;
+        arr1 = ele.className.split(" ");
+        arr2 = name.split(" ");
+        for (i = 0; i < arr2.length; i++) {
+            while (arr1.indexOf(arr2[i]) > -1) {
+                arr1.splice(arr1.indexOf(arr2[i]), 1);
+            }
+        }
+        ele.className = arr1.join(" ");
+    }
+    var filterBtns = document.querySelector(".filterBtns");
+    var btns = filterBtns.getElementsByClassName("menucat");
+    for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", function () {
+            var current = document.getElementsByClassName("active");
+            current[0].className = current[0].className.replace(" active", "");
+            this.className += " active";
+        });
+    }
+   
+</script>

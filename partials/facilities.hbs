@@ -1,0 +1,23 @@
+{{#if c_facilitiesService}}
+<div class="w-full inline-block relative mt-8 lg:mt-14 pb-20 bg-faci-bg bg-repeat">
+    <div class="container-custom mt-10 mx-auto">
+        <h2 class="text-4xl text-center pt-10 pb-16 uppercase
+            text-text-blue-dark">FACILITIES</h2>
+        <div class="flex flex-wrap justify-center">
+            {{#each c_facilitiesService}}
+            <div class="w-full p-8 lg:px-2 xl:px-2 md:w-1/2 lg:w-1/4">
+                <div class="bg-white rounded shadow-lg w-full pt-12 pb-8
+                    relative">
+                    <div class="absolute left-1/2 shadow-lg -translate-x-1/2
+                        -top-9 bg-white rounded-full p-4 w-[65px] h-[65px]">
+                        <img src={{photo.[0].url}} class="ml-0.5" width="30"
+                            alt=""> </div>
+                    <div class="w-full text-center py-1 text-text-blue-dark
+                        font-optimabold text-base inline-block">{{title}}</div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</div>
+{{/if}}

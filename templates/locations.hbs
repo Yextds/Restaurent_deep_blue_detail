@@ -1,0 +1,178 @@
+---
+{
+"stream": {
+"$id": "deepbluelocation",
+"source": "knowledgeGraph",
+"destination": "pages",
+"filter" : {
+"entityTypes": [
+"restaurant"
+]
+},
+"fields": [
+"id",
+"uid",
+"meta",
+"name",
+"mainPhone",
+"address",
+"description",
+"hours",
+"photoGallery",
+"slug",
+"geocodedCoordinate",
+"services",
+"neighborhood",
+"paymentOptions",
+"c_relatedFAQs.question",
+"c_documentFile",
+"c_documentURLDeepBlue1",
+"c_restaurantsServices1",
+"c_restaurantsFacilities1",
+"takeoutHours",
+"c_deepBlueStoreMessage",
+"c_extraservices2",
+"deliveryHours",
+"c_facilitiesService",
+"dm_directoryParents.name",
+"dm_directoryParents.slug",
+"c_relatedmenuitemsdeepblue.c_menunav",
+"c_relatedmenuitemsdeepblue.uid",
+"c_relatedmenuitemsdeepblue.name",
+"c_relatedmenuitemsdeepblue.slug",
+"c_relatedmenuitemsdeepblue.photoGallery",
+"c_restaurantService",
+"c_relatedFAQs.answer"
+],
+"localization": {
+"locales": ["en"]
+}
+},
+
+"urlFormat": "{{slug}}"
+}
+---
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {{>head }}
+  <title>Deep Blue</title>
+
+</head>
+
+<body id="body">
+  {{>header}}
+  {{>hero}}
+  {{>breadcrumb}}
+  {{>location_information-without-allergens}}
+  {{>services}}
+  {{>about}}
+  {{>menu}}
+  {{>facilities}}
+  {{>faq}}
+  {{>nearby geocodedCoordinate}}
+  {{>footer}}
+
+
+  <a href="" target=""></a>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.0.7/dist/js/splide.min.js"></script>
+  <script>
+    // Get the button, and when the user clicks on it, execute myFunction
+    document.getElementById("menu-btn").onclick = function () { menuFunction() };
+
+    /* myFunction toggles between adding and removing the show class, which is used to hide and show the dropdown content */
+    function menuFunction() {
+        document.getElementById("menu-btn").classList.toggle("active");
+        document.getElementById("menu-responsive").classList.toggle("show");
+    }
+
+
+    var splide = new Splide('#splide', {
+      perPage: 1,
+      perMove: 1,
+      pagination: false,
+      lazyLoad: 'nearby',
+      breakpoints: {
+        1279: {
+          perPage: 1,
+        },
+        767: {
+          perPage: 1,
+        },
+        575: {
+          perPage: 1,
+          focus  : 'center',
+          padding: '0px',
+          type : 'loop',
+        }
+      },
+    });
+    splide.mount();
+  </script>
+  <script>
+    var splide2 = new Splide('#splide-near', {
+      perPage: 3,
+      perMove: 1,
+      arrows: false,
+      drag: false,
+      pagination: false,
+      lazyLoad: 'nearby',
+      breakpoints: {
+        1279: {
+          perPage: 1,
+          drag: true,
+          pagination: true,
+        },
+      },
+    });
+    splide2.mount();
+  </script>
+
+
+    <script>
+      ANSWERS.init({
+        apiKey: "sandbox-cc8b0bde99d9d71f0f7a6fa03200807b",  //sample test experience
+        experienceKey: "deepblue-test",  //sample test experience
+        businessId: "2679138",  //sample test experience
+        experienceVersion: "STAGING",
+        onReady: function () {
+          // init components
+      this.addComponent("SearchBar", {
+          container: ".search-bar",
+           placeholderText: 'What would you like to know?',
+           redirectUrl: "https://master-laborious--mammal--antiques-sbx-pgsdemo-com.sbx.preview.pagescdn.com",
+           customIconUrl: "/images/search.svg"
+        });
+        }
+      });
+    </script>
+
+
+
+
+    {{!-- <script>
+      ANSWERS.init({
+        apiKey: "sandbox-cc8b0bde99d9d71f0f7a6fa03200807b",  //sample test experience
+        experienceKey: "deepblue-test",  //sample test experience
+        businessId: "2679138",  //sample test experience
+        experienceVersion: "STAGING",
+        onReady: function () {
+          // init components
+      this.addComponent("SearchBar", {
+          container: ".search-bar",
+           placeholderText: 'What would you like to know?',
+           redirectUrl: "https://master-laborious--mammal--antiques-sbx-pgsdemo-com.sbx.preview.pagescdn.com",
+           customIconUrl: "/images/search.svg"
+        });
+        }
+      });
+    </script> --}}
+
+
+
+</body>
+
+</html>

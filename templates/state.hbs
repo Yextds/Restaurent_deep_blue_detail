@@ -1,0 +1,127 @@
+---
+{
+"stream": {
+"$id": "states-deepblue-region",
+"source": "knowledgeGraph",
+"destination": "pages",
+"filter" : {
+"entityTypes": [
+"deepblue_region"
+],
+"savedFilterIds":[
+"dm_restaurents-directory_address_region"
+]
+},
+"fields": [
+"id",
+"uid",
+"meta",
+"name",
+"address",
+"mainPhone",
+"slug",
+"dm_directoryParents.name",
+"dm_directoryParents.slug",
+"dm_directoryChildren.name",
+"dm_directoryChildren.address",
+"dm_directoryChildren.slug",
+"dm_directoryChildren.dm_directoryChildren.name",
+"dm_directoryChildren.dm_directoryChildren.slug"
+],
+"localization": {
+"locales": ["en"]
+}
+},
+"urlFormat": "{{slug}}"
+}
+---
+<!DOCTYPE html>
+<html lang={{locale}}>
+    <head>
+        {{>head }}
+        <title>{{name}} - {{neighborhood}}</title>
+        <link href="" rel="shortcut icon" type="image/png">
+    </head>
+    <body>
+        {{>header}}
+
+
+<div class="hero">
+    <img class="hero-img" src="images/hero.jpg" alt="banner" />
+    <div class="w-full bg-opacity-30 bg-blue-primary flex items-center
+        justify-center py-12 2xl:pb-11">
+        <div class="mx-2 text-center">
+            <h1>{{name}}</h1>
+        </div>
+
+    </div>
+</div>
+
+
+
+<div class="breadcrumb">
+      <div class="px-10">
+          <div class="boxes">
+              <ul>
+                  <li>
+                      <a href="#">Home</a>
+                  </li>
+                  
+                <li><a href="{{dm_directoryParents.[1].slug}}">{{dm_directoryParents.[1].name}}</a></li>
+                  <li>{{formatOption name}}</li>
+              </ul>
+          </div>
+      </div>
+  </div>
+  <div class="nearby-sec state-bx">
+<div class="container-custom mx-auto px-4">
+            <div class="location-data grid gap-x-5 gap-y-5 sm:px-10 md:px-0 grid-cols-1 md:grid-cols-3 lg:gap-x-10">
+      {{#each dm_directoryChildren}}
+        
+          <div class="near-location state-bx">
+            <h4 class="name mb-2.5 font-bold"><a data-yext-analytics="getStoreDetailPage" class="transition-all duration-300 hover:text-blue"
+                href="{{slug}}">{{name}}</a>
+            </h4>
+
+         
+            <div class="nearbyaddress">
+                
+               <svg xmlns="http://www.w3.org/2000/svg" width="19.23" height="28" viewBox="0 0 21.23 30"><g transform="translate(0 0)"><path d="M6.789,23.576c1.079,1.719,2.246,3.8,3.4,5.825.427.747.813.859,1.326-.027,1.113-1.931,2.207-3.931,3.359-5.8,3.5-5.661,9.223-11.181,4.67-18.8C15.5-1.987,4.5-1.265,1.216,5.034c-3.769,7.219,2.117,13.039,5.574,18.542Z" fill="#fff" fill-rule="evenodd" /><path d="M10.61,6.247a4.116,4.116,0,1,1-4.116,4.116A4.117,4.117,0,0,1,10.61,6.247Z" fill="#337DC6" fill-rule="evenodd" /></g></svg>
+               <div class="address-bx">
+               <div>{{address.line1}}</div>
+              <div class="address-line-2">
+                {{address.line2}}{{address.city}}{{address.postalCode}}
+                </div>
+</div>
+            </div>
+          </div>
+       
+        {{/each}}
+      </div>
+      </div>
+      </div>
+      
+
+     
+           
+
+
+       {{!-- <div class="container-custom  mx-auto">
+       <div class="state-main">
+
+        {{#each dm_directoryChildren}}
+        <div class="state-card">
+        <h3><a href="{{slug}}"> <strong>{{name}}</strong> </a></h3>
+         <div class="address">{{!--{{address.line1}} --}}
+            {{!-- <p>36-38 Lairgate Beverley</p>
+            <p>HU17 8EU</p>
+
+            
+              </div> 
+        </div>
+                {{/each}}
+       </div>--}}
+       </div>  
+        {{>footer}}
+    </body>
+</html>

@@ -1,0 +1,51 @@
+<div class=" faq-sec w-full mt-0 lg:mt-36 xl:mt-52 relative  pb-9  before:shadow-[10px_3px_26px_rgba(0,0,0,0.10)] 
+before:border-opacity-5 before:bg-cover  before:bg-left before:bg-no-repeat before:bg-[#f8fafc] before:content-[''] z-0 before:block before:absolute before:top-0 before:left-0 before:lg:-left-1/2 before:xl:-left-[40%] before:w-full before:bottom-0 before:xl-bottom-10">
+
+    <div class=" container-custom   mx-auto relative">
+
+        <div class=" grid grid-cols-1 lg:grid-cols-2">
+
+                <h2 class=" text-optimabold block text-center lg:hidden text-[42px]  pt-10 xl:pt-8 pb-4 uppercase text-text-blue-dark ">FREQUENTLY ASKED QUESTIONS </h2>
+            <div class="relative order-1 lg:order-0 faq-sec-inner pr-0  lg:pr-20 xl:pr-6 pb-14  xl:pb-0">
+                <h2 class=" text-optimabold hidden lg:block text-[42px] text-left pt-10 xl:pt-8 xl:pl-1 pb-4 uppercase text-text-blue-dark ">FREQUENTLY ASKED QUESTIONS </h2>
+                <div class="faq-tabs">
+                    {{#each c_relatedFAQs}}
+                    <div class="faq-tab py-0 mt-2">
+                        <h3 class="faq-tab-label  border-[1px] !text-base   border-[#3A78B7]  !p-2   " for="rd1">
+                            {{question}}</h3>
+                        <div class="faq-tab-content">
+                            {{answer}}
+                        </div>
+                    </div>
+                      {{/each}}
+                </div>
+                <div class="text-center  absolute  xl:bottom-0  2xl:bottom-4 left-0 w-full pr-0  lg:pr-16"> <a href="#" class="bg-blue-primary mt-4  xl:mt-0 uppercase  px-5
+                         text-white hover:text-white text-sm !leading-9 text-center
+                        inline-block rounded-sm text-main-blue   w-[163px]
+                        hover:transition-all transform hover:scale-[1.09]"> view more </a> </div>
+            </div>
+            <div class="relative  order-0 lg:order-1  right-0 mt-4 px-4 lg:px-0 mt-0 lg:-mt-10  xl:-mt-36 lg:-ml-14 xl:ml-6">
+            <img class="rounded-tl-2xl w-full rounded-br-2xl  " src="/images/faq-img.jpg" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('.tabs').children('.tab:first-child').addClass('current');
+    });
+    $('.tabs').on('click', '.tab-label', function () {
+        $('.tabs > .tab').removeClass('current');
+        $(this).parent().addClass('current');
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        $('.faq-tabs').children('.faq-tab:first-child').addClass('current');
+    });
+    $('.faq-tabs').on('click', '.faq-tab-label', function () {
+        $('.faq-tabs > .faq-tab').removeClass('current');
+        $(this).parent().addClass('current');
+    });
+</script>

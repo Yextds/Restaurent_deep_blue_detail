@@ -1,0 +1,132 @@
+<div class="location-information">
+    <div class="px-10">
+        <div class="boxes">
+            <div class="box bg-bodypattern store-info">
+
+
+                <div class="inner-box">
+                    <h4 class="text-[22px]">Address</h4>
+                    <div class="store-address">
+
+                        <div class="ad-icons">
+                            <svg class="w-5 h-5 inline-block mt-1 " aria-hidden="true" focusable="false"
+                                data-prefix="fas" data-icon="map-marker-alt" role="img"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg="">
+                                <path fill="#fff" d="M172.268
+                                501.67C26.97 291.031 0 269.413 0 192 0 85.961
+                                85.961
+                                0 192 0s192 85.961 192 192c0 77.413-26.97
+                                99.031-172.268 309.67-9.535 13.774-29.93
+                                13.773-39.464 0zM192 272c44.183 0 80-35.817
+                                80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80
+                                80
+                                80z"></path>
+                            </svg>
+                        </div>
+
+                        <p> <b>{{name}}</b> <br />{{address.line1}}
+                            {{address.city}} {{address.postalCode}}</p>
+                    </div>
+                    <div class="store-phone">
+
+
+                        <div class="phn-icons">
+
+                            <div class="phn-icons">
+
+
+
+                                <svg class="w-5 h-5 mt-1 inline-block text-sm" xmlns="http://www.w3.org/2000/svg"
+                                    width="10" height="16" viewBox="0 0 10 16">
+                                    <path id="mobile-alt"
+                                        d="M8.5,0h-7A1.5,1.5,0,0,0,0,1.5v13A1.5,1.5,0,0,0,1.5,16h7A1.5,1.5,0,0,0,10,14.5V1.5A1.5,1.5,0,0,0,8.5,0ZM5,15a1,1,0,1,1,1-1A1,1,0,0,1,5,15Zm3.5-3.375A.376.376,0,0,1,8.125,12H1.875a.376.376,0,0,1-.375-.375V1.875A.376.376,0,0,1,1.875,1.5h6.25a.376.376,0,0,1,.375.375Z"
+                                        fill="#fff" />
+                                </svg>
+                            </div>
+                        </div>
+
+                        <p><a href="tel:{{mainPhone}}">{{mainPhone}}</a></p>
+                    </div>
+
+
+                    <ul class="flex flex-row flex-wrap ml-10 font-nexa_boldregular
+                    items-center mt-0 gap-4 md:gap-5">
+                        <li><a id="address" class=" bg-blue-primary text-sm w-36
+                            md:w-40 xl:w-[177px]  inline-block !leading-8 rounded-sm  lg:py-1 xl:py-0.5
+                            text-white  text-center transition-all transform
+                            hover:scale-[1.09]" href="https://www.google.com/maps/dir/?api=1&origin=lat+lng+&destination={{address.line1}}{{address.city}}{{address.postalCode}}" target="_blank"><svg class="w-4 h-4
+                                inline-block" aria-hidden="true" focusable="false" data-prefix="fas"
+                                    data-icon="map-marker-alt" role="img" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 384 512" data-fa-i2svg="">
+                                    <path fill="currentColor" d="M172.268
+                                    501.67C26.97 291.031 0 269.413 0 192 0
+                                    85.961 85.961
+                                    0 192 0s192 85.961 192 192c0 77.413-26.97
+                                    99.031-172.268 309.67-9.535 13.774-29.93
+                                    13.773-39.464 0zM192 272c44.183 0 80-35.817
+                                    80-80s-35.817-80-80-80-80 35.817-80 80
+                                    35.817 80 80
+                                    80z"></path>
+                                </svg> Map &amp; Direction</a></li>
+                    </ul>
+
+                    <div>
+                        {{#if c_extraservices2}}
+                        <h4 class="!mb-1.5 mt-7 text-[22px]  text- border-b border-b-drak-blue font-bold">Delivery
+                            Services</h4>
+                        {{#each c_extraservices2}}
+                        <div class="text-sm text-white py-1.5 px-0.5 rounded-md  
+                    inline-block "><a href="#">
+                                <img class="inline-block w-[45px] h-auto transition-all duration-300 transform hover:scale-110"
+                                    src="{{thumbnails.[0].url}}">
+                            </a></div>
+                        {{/each}}
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+          <div class="box store-timing">
+               <div class="tabs inner-box">
+                  {{#if hours}}
+                  <div class="tab py-0 mt-0 current">
+                     <h4 class="tab-label text-[22px]">Opening Hours</h4>
+                     <div class="tab-content" id="hours1-div">
+                        <div class="hours">
+                           {{>hours hours}}
+                        </div>
+                     </div>
+                  </div>
+                  {{/if}}
+                  {{#if deliveryHours}}
+                  <div class="tab py-0">
+                     <h4 class="tab-label text-[22px]">Restaurant Hours</h4>
+                     <div class="tab-content" id="hours2-div">
+                        <div class="hours">
+                           {{>deliveryhours deliveryHours}}
+                        </div>
+                     </div>
+                  </div>
+                  {{/if}}
+                  {{#if takeoutHours}}
+                  <div class="tab py-0">
+                     <h4 class="tab-label text-[22px]">Takeaway Hours</h4>
+                     <div class="tab-content" id="hours3-div">
+                        <div class="hours">
+                           {{>takeouthours takeoutHours}}
+                        </div>
+                     </div>
+                  </div>
+                  {{/if}}
+               </div>
+            </div>
+            <div class="box map-info">
+                <div class="inner-box">
+                    <iframe width="100%" height="475" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+                        src="https://maps.google.com/maps?q=DeepBLue,{{address.line1}}
+                            {{address.city}}{{address.postalCode}}&amp;en=uk&amp;z=14&amp;output=embed">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
