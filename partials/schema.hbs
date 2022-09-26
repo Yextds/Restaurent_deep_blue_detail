@@ -1,0 +1,35 @@
+{{!-- Please validate any customizations with Schema validator! (https://validator.schema.org/) --}}
+<script type="application/ld+json" class="yext-schema-json" data-yext-id="{{id}}">
+{
+  "@context": "https://schema.org",
+  "@id": "{{id}}",
+  "@type": ["Restaurant"],
+  "name": "{{name}}",
+  "telephone": "{{mainPhone}}",
+  "geo": "{{>schemaHelpers-geo geocodedCoordinate}}",
+  "openingHoursSpecification": [
+    "{{>schemaHelpers-hours hours}}"
+  ],
+}
+}
+</script>
+<script type="application/ld+json">
+{
+     "@context": "https://schema.org/",
+     "@type": "BreadcrumbList",
+     "itemListElement": [
+          {
+               "@type": "ListItem",
+               "position": 1,
+               "name": "Home",
+               "item": "Home"
+          },
+          {
+               "@type": "ListItem",
+               "position": 2, 
+               "name": "{{name}}",
+               "item": "{{name}}"
+          }
+     ]
+}
+</script>
